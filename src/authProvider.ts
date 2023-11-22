@@ -48,7 +48,9 @@ export const authProvider: AuthBindings = {
     };
   },
   check: async (ctx: any) => {
+
     const cookies = nookies.get(ctx);
+    console.log(ctx)
     if (cookies["auth"]) {
       return {
         authenticated: true,
@@ -61,6 +63,7 @@ export const authProvider: AuthBindings = {
       redirectTo: "/login",
     };
   },
+  
   getPermissions: async () => {
     const auth = nookies.get()["auth"];
     if (auth) {
@@ -78,7 +81,7 @@ export const authProvider: AuthBindings = {
     return null;
   },
   onError: async (error) => {
-    console.error(error);
+    console.error(error,'1234123');
     return { error };
   },
 };

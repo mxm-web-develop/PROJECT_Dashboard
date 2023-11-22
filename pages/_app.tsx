@@ -57,7 +57,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
 
   return (
     <>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <AntdApp>
@@ -70,25 +69,59 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 i18nProvider={i18nProvider}
                 resources={[
                   {
-                    name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
+                    name:"用户管理",
+                    list:"/users",
+                    create:"/users/create",
+                    edit:"/users/edit/:id",
+                    show:"/users/show/:id",
+                    meta:{
+                      canDelete:true
+                    }
                   },
                   {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
+                    name:"角色管理",
+                    list:"/roles",
+                    create:"/roles/create",
+                    edit:"/roles/edit/:id",
+                    meta:{
+                      canDelete:true
+                    }
                   },
+                  {
+                    name:"群组管理",
+                    list:'/groups',
+                    create:"/groups/create",
+                    edit:"/groups/edit/:id",
+                    show:"/groups/show/:id",
+                    meta:{
+                      canDelete:true
+                    }
+                  },
+                  {
+                    name:"数据管理",
+                    list:'/data',
+                    meta:{
+                      icon:''
+                    }
+                  },
+                  {
+                    name:'图谱管理',
+                    list:'/data/graphs',
+                    create:"/data/groups/create",
+                    show:"/data/groups/show/:id",
+                    meta:{
+                      parent:'数据管理'
+                    }
+                  },
+                  {
+                    name:"schema管理",
+                    list:"/data/schemas",
+                    create:"/data/schemas/create",
+                    show:"/data/schemas/show/:id",
+                    meta:{
+                      parent:'数据管理'
+                    }
+                  }
                 ]}
                 options={{
                   syncWithLocation: true,
